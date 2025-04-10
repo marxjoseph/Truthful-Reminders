@@ -1,16 +1,16 @@
 import os
 import uuid
 from google import genai
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 from flask import Flask, request, render_template, redirect, url_for, jsonify, session
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # For session management
 
 # Load environment variables once at startup
-#load_dotenv()
-#api_key = os.getenv("API_KEY")
-client = genai.Client(api_key="AIzaSyCC0MuLw-JEcACeu3GwVY8TZlT18BQ4_Ow")
+load_dotenv()
+api_key = os.getenv("API_KEY")
+client = genai.Client(api_key=api_key)
 
 @app.route('/')
 def home():
